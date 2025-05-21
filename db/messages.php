@@ -43,13 +43,13 @@ if (defined(MESSAGE_DEFAULT_LOGGEDIN) && defined(MESSAGE_DEFAULT_LOGGEDOFF) ) {
     $messageproviders = [
         'timelineposts' => [
             'defaults' => [
-                'popup' => MESSAGE_PERMITTED,
+                'popup' => MESSAGE_PERMITTED + MESSAGE_DEFAULT_ENABLED,
                 'email' => MESSAGE_PERMITTED
             ]
         ],
         'postmention' => [
             'defaults' => [
-                'popup' => MESSAGE_PERMITTED,
+                'popup' => MESSAGE_PERMITTED + MESSAGE_DEFAULT_ENABLED,
                 'email' => MESSAGE_PERMITTED
             ]
         ]
