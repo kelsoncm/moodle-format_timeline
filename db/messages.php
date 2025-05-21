@@ -24,17 +24,34 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$messageproviders = [
-    'timelineposts' => [
-        'defaults' => [
-            'popup' => MESSAGE_PERMITTED + MESSAGE_DEFAULT_LOGGEDIN + MESSAGE_DEFAULT_LOGGEDOFF,
-            'email' => MESSAGE_PERMITTED
+if (defined(MESSAGE_DEFAULT_LOGGEDIN) && defined(MESSAGE_DEFAULT_LOGGEDOFF) ) {
+    $messageproviders = [
+        'timelineposts' => [
+            'defaults' => [
+                'popup' => MESSAGE_PERMITTED + MESSAGE_DEFAULT_LOGGEDIN + MESSAGE_DEFAULT_LOGGEDOFF,
+                'email' => MESSAGE_PERMITTED
+            ]
+        ],
+        'postmention' => [
+            'defaults' => [
+                'popup' => MESSAGE_PERMITTED + MESSAGE_DEFAULT_LOGGEDIN + MESSAGE_DEFAULT_LOGGEDOFF,
+                'email' => MESSAGE_PERMITTED
+            ]
         ]
-    ],
-    'postmention' => [
-        'defaults' => [
-            'popup' => MESSAGE_PERMITTED + MESSAGE_DEFAULT_LOGGEDIN + MESSAGE_DEFAULT_LOGGEDOFF,
-            'email' => MESSAGE_PERMITTED
+    ];
+} else {
+    $messageproviders = [
+        'timelineposts' => [
+            'defaults' => [
+                'popup' => MESSAGE_PERMITTED,
+                'email' => MESSAGE_PERMITTED
+            ]
+        ],
+        'postmention' => [
+            'defaults' => [
+                'popup' => MESSAGE_PERMITTED,
+                'email' => MESSAGE_PERMITTED
+            ]
         ]
-    ]
-];
+    ];
+}
